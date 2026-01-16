@@ -282,9 +282,9 @@
 
 @keyframes floating {
   0% {
-    transform: translate(-0, 10px) rotate(-1deg);
+    transform: translate(-0, 2px) rotate(-1deg);
   }
   100% {
-    transform: translate(0, -10px) rotate(0deg);
+    transform: translate(0, -2px) rotate(0deg);
   }
 }

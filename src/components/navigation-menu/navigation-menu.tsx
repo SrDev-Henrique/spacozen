@@ -21,7 +21,7 @@ export function NavigationMenu() {
   return (
     <nav
       className={cn(
-        "-translate-x-1/2 fixed top-4 left-1/2 z-50 flex w-[92%] max-w-2xl rounded-4xl bg-background/50 px-4 backdrop-blur-sm transition-all duration-500 sm:px-6 md:w-full lg:px-8",
+        "-translate-x-1/2 fixed top-4 left-1/2 z-100 flex w-[92%] max-w-2xl rounded-4xl bg-background/50 px-4 backdrop-blur-sm transition-all duration-500 sm:px-6 md:w-full lg:px-8",
         isLoaded && "backdrop-brightness-98",
       )}
     >

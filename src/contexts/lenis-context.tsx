@@ -1,0 +1,63 @@
+// contexts/LenisContext.tsx
+"use client";
+
+import Lenis from "lenis";
+import { createContext, useContext, useEffect, useRef } from "react";
+import { isMobile } from "react-device-detect";
+
+type LenisContextType = {
+  lenis: Lenis | null;
+};
+
+const LenisContext = createContext<LenisContextType>({
+  lenis: null,
+});
+
+export const useLenis = () => useContext(LenisContext);
+
+export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
+  const lenisRef = useRef<Lenis | null>(null);
+
+  useEffect(() => {
+    if (isMobile) return;
+    const lenis = new Lenis({
+      duration: 1.5,
+      easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 0.6,
+      wheelMultiplier: 0.7,
+    });
+
+    lenisRef.current = lenis;
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+    document.body.style.overflow = "hidden";
+    setTimeout(() => {
+      document.body.style.overflow = "auto";
+    }, 2000);
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
+  return (
+    <LenisContext.Provider value={{ lenis: lenisRef.current }}>
+      {children}
+    </LenisContext.Provider>
+  );
+};

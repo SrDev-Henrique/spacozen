@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NavigationMenu } from "@/components/navigation-menu/navigation-menu";
+import { LenisProvider } from "@/contexts/lenis-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,7 +52,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavigationMenu />
-        {children}
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );

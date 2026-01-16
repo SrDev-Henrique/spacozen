@@ -81,7 +81,7 @@ export function Hero() {
           className="relative aspect-square w-[22vw] min-w-[100px] max-w-[200px] overflow-hidden rounded-2xl"
         >
           <Image
-            src="/images/bed-side.webp"
+            src="/images/console.webp"
             alt="Relaxed Icon"
             fill
             className="size-full object-cover object-center"
