@@ -1,3 +1,4 @@
+import { About } from "./(sections)/about/about";
 import { Hero } from "./(sections)/hero/hero";
 
 export default function Home() {
@@ -5,7 +6,7 @@ export default function Home() {
     <main>
       <div className="mx-auto w-full max-w-6xl space-y-20 px-6 md:px-0">
         <Hero />
-        <div className="min-h-[300vh]">a</div>
+        <About />
       </div>
     </main>
   );

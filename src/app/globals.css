@@ -239,7 +239,7 @@
   h3,
   .heading {
     font-family: var(--font-bodoni);
-    font-weight: 700; /* ajuste conforme os weights que você declarou */
+    font-weight: 300; /* ajuste conforme os weights que você declarou */
     line-height: 1.02;
     letter-spacing: -0.02em;
   }

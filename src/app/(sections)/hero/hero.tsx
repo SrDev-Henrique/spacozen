@@ -14,7 +14,7 @@ export function Hero() {
         <div className="flex size-full flex-col items-center justify-center gap-6 pt-6">
           <motion.div
             className="opacity-55"
-            custom={1.8}
+            custom={{ delay: 1.8, opacity: 0.55 }}
             variants={fadeUpBlurVariants}
             initial="initial"
             animate="animate"
@@ -23,7 +23,7 @@ export function Hero() {
           </motion.div>
           <motion.h1
             className="max-w-sm text-center font-bold text-[1.575rem] xs:text-[1.765rem] uppercase leading-relaxed sm:max-w-md sm:text-3xl md:max-w-none md:text-4xl lg:text-5xl"
-            custom={2}
+            custom={{ delay: 2, opacity: 1 }}
             variants={fadeUpBlurVariants}
             initial="initial"
             animate="animate"
@@ -32,7 +32,7 @@ export function Hero() {
           </motion.h1>
           <motion.p
             className="max-w-sm text-center text-[1rem] text-muted-foreground md:max-w-none md:text-base lg:text-lg"
-            custom={2.2}
+            custom={{ delay: 2.2, opacity: 1 }}
             variants={fadeUpBlurVariants}
             initial="initial"
             animate="animate"
@@ -42,7 +42,7 @@ export function Hero() {
           </motion.p>
           <motion.div
             className="mx-auto flex w-full max-w-sm justify-center gap-6"
-            custom={2.4}
+            custom={{ delay: 2.4, opacity: 1 }}
             variants={fadeUpBlurVariants}
             initial="initial"
             animate="animate"

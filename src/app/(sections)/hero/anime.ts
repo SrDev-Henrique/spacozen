@@ -6,9 +6,9 @@ export const fadeUpBlurVariants = {
     opacity: 0,
     filter: "blur(10px)",
   },
-  animate: (delay: number) => ({
+  animate: ({ delay, opacity }: { delay: number, opacity: number }) => ({
     y: 0,
-    opacity: 1,
+    opacity: opacity || 1,
     filter: "blur(0px)",
     transition: {
       duration: 1.2,

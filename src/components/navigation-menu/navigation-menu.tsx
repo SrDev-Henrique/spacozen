@@ -52,7 +52,7 @@ export function NavigationMenu() {
         </motion.div>
         <motion.div
           variants={fadeUpBlurVariants}
-          custom={1.8}
+          custom={{ delay: 1.8, opacity: 1 }}
           initial="initial"
           animate="animate"
           className="flex items-center gap-4"
