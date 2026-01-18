@@ -1,29 +1,5 @@
 import { cubicBezier } from "motion/react";
 
-export const navigationMenuVariants = {
-  initial: {
-    left: "0%",
-    top: "0rem",
-    transform: "translateX(0%)",
-    maxWidth: "999rem",
-    width: "100%",
-    height: "100%",
-  },
-  animate: {
-    left: "50%",
-    top: "1rem",
-    transform: "translateX(-50%)",
-    width: "90%",
-    maxWidth: "42rem",
-    height: "4rem",
-    transition: {
-      delay: 1,
-      duration: 1,
-      ease: cubicBezier(0.215, 0.61, 0.355, 1),
-    },
-  },
-};
-
 export const logoVariants = {
     initial: {
         scale: 3.5,

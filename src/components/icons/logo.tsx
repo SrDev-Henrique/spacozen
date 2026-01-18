@@ -11,7 +11,7 @@ export function Logo() {
     >
       <style>{`
         .petal {
-          fill: none;
+          fill: var(--bg-color, none);
           stroke: #322018;
           stroke-width: 8;
           stroke-linecap: round;
@@ -34,19 +34,31 @@ export function Logo() {
         <path
           className="petal"
           d="M300 300 C230 220 230 120 300 60 C370 120 370 220 300 300"
-          style={{ "--angle": "0deg" } as CSSProperties}
+          style={
+            {
+              "--angle": "0deg",
+            } as CSSProperties
+          }
         />
         <path
           className="petal"
           d="M300 300 C230 220 230 120 300 60 C370 120 370 220 300 300"
           transform="rotate(-20 300 300)"
-          style={{ "--angle": "-20deg" } as CSSProperties}
+          style={
+            {
+              "--angle": "-20deg",
+            } as CSSProperties
+          }
         />
         <path
           className="petal"
           d="M300 300 C230 220 230 120 300 60 C370 120 370 220 300 300"
           transform="rotate(20 300 300)"
-          style={{ "--angle": "20deg" } as CSSProperties}
+          style={
+            {
+              "--angle": "20deg",
+            } as CSSProperties
+          }
         />
         <path
           className="petal"
@@ -58,7 +70,11 @@ export function Logo() {
           className="petal"
           d="M300 300 C230 220 230 120 300 60 C370 120 370 220 300 300"
           transform="rotate(40 300 300)"
-          style={{ "--angle": "40deg" } as CSSProperties}
+          style={
+            {
+              "--angle": "40deg",
+            } as CSSProperties
+          }
         />
       </g>
     </svg>

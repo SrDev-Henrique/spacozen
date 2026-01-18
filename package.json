@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@remixicon/react": "^4.8.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

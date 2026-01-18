@@ -97,6 +97,7 @@
 
 @theme {
   --breakpoint-xs: 430px;
+  --breakpoint-bmd: 940px;
   --breakpoint-xl: 1224px;
   --breakpoint-2xl: 1536px;
 }

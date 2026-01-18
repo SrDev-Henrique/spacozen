@@ -1,92 +1,128 @@
 "use client";
 
+import { RiStarFill } from "@remixicon/react";
+import { Calendar } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { isMobile } from "react-device-detect";
 import { RelaxedIcon } from "@/components/icons/relaxed-icon";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 import { fadeUpBlurVariants, revealLeftClipVariants } from "./anime";
+
+const popularMassages = ["Nuru", "Vivência", "Mix Tântrico"];
 
 export function Hero() {
   return (
-    <div className="relative mx-auto flex h-fit min-h-[600px] w-full items-center justify-center">
-      <div className="relative z-50 mx-auto flex h-[60vh] min-h-[400px] w-full max-w-2xl items-center justify-center pt-65 sm:pt-26">
-        <div className="flex size-full flex-col items-center justify-center gap-6 pt-6">
-          <motion.div
-            className="opacity-55"
-            custom={{ delay: 1.8, opacity: 0.55 }}
-            variants={fadeUpBlurVariants}
-            initial="initial"
-            animate="animate"
-          >
-            <RelaxedIcon width={40} height={40} />
-          </motion.div>
-          <motion.h1
-            className="max-w-sm text-center font-bold text-[1.575rem] xs:text-[1.765rem] uppercase leading-relaxed sm:max-w-md sm:text-3xl md:max-w-none md:text-4xl lg:text-5xl"
-            custom={{ delay: 2, opacity: 1 }}
-            variants={fadeUpBlurVariants}
-            initial="initial"
-            animate="animate"
-          >
-            A melhor casa de massagem de Campinas
-          </motion.h1>
-          <motion.p
-            className="max-w-sm text-center text-[1rem] text-muted-foreground md:max-w-none md:text-base lg:text-lg"
-            custom={{ delay: 2.2, opacity: 1 }}
-            variants={fadeUpBlurVariants}
-            initial="initial"
-            animate="animate"
-          >
-            Respire fundo, deixe nossas mãos devolverem seu equilíbrio e leve
-            consigo uma nova leveza.
-          </motion.p>
-          <motion.div
-            className="mx-auto flex w-full max-w-sm justify-center gap-6"
-            custom={{ delay: 2.4, opacity: 1 }}
-            variants={fadeUpBlurVariants}
-            initial="initial"
-            animate="animate"
-          >
-            <Button className="uppercase" variant="secondary" asChild>
-              <Link href="/massagens">Massagens</Link>
-            </Button>
-            <Button className="uppercase" asChild>
-              <Link href="/agendamento">Agendar horário</Link>
-            </Button>
-          </motion.div>
+    <div className="relative h-dvh min-h-[660px] w-full">
+      <div className="relative h-full w-full brightness-55">
+        <Image
+          src="/images/hero.webp"
+          alt="Hero Background"
+          fill
+          className="object-cover object-center"
+        />
+      </div>
+      <div className="absolute inset-0 bmd:pt-42 pt-22">
+        <div className="mx-auto flex h-full w-full max-w-[1320px] bmd:flex-row flex-col bmd:items-end justify-between p-4 lg:px-6">
+          <div className="flex h-full flex-col items-start justify-end bmd:justify-between gap-4 bmd:pb-0 pb-10">
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <h3 className="font-semibold text-lg text-muted">
+                  Sua dose de bem-estar
+                </h3>
+                <h1 className="bmd:max-w-2xl max-w-sm font-bold text-5xl text-primary-foreground lg:text-7xl">
+                  A massagem muda o seu dia a dia
+                </h1>
+              </div>
+              <Button
+                variant="default"
+                className="rounded-full bmd:py-7 py-6 pe-1 uppercase"
+                asChild
+              >
+                <Link href="/agendamento">
+                  Agendar horário
+                  <div className="rounded-full bg-foreground bmd:p-3 p-2">
+                    <Calendar className="size-4 md:size-5" />
+                  </div>
+                </Link>
+              </Button>
+            </div>
+            <div className="bmd:flex hidden items-center gap-4 rounded-full bg-foreground/30 p-2">
+              <p className="font-semibold bmd:text-base text-primary-foreground text-xs">
+                Mais populares
+              </p>
+              <div className="flex items-center gap-2">
+                {popularMassages.map((massage) => (
+                  <Button
+                    key={massage}
+                    className="cursor-pointer rounded-3xl bg-transparent bmd:py-6 py-4 text-primary-foreground uppercase backdrop-blur-sm backdrop-brightness-155 hover:bg-transparent hover:brightness-115"
+                  >
+                    <Calendar />
+                    {massage}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="w-fit space-y-4 self-end rounded-2xl p-4 backdrop-blur-sm backdrop-brightness-75">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center">
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <Avatar
+                      key={index.toString()}
+                      className="not-first:-ms-2 bmd:size-10 border-2 border-muted/30"
+                    >
+                      <AvatarImage
+                        src={`/images/avatar-${index}.${index === 0 ? "jpg" : "webp"}`}
+                      />
+                    </Avatar>
+                  ))}
+                </div>
+                <p className="text-nowrap rounded-full bg-card/12 p-2 font-semibold bmd:text-base text-primary-foreground text-sm">
+                  Mais 250
+                </p>
+                <p className="bmd:text-base text-primary-foreground text-sm">
+                  Reverenciada!
+                </p>
+              </div>
+              <p className="max-w-[300px] bmd:text-base text-muted text-xs">
+                A massagem me ajudou a relaxar e me sentir mais energizado.
+              </p>
+              <Separator className="bmd:block hidden bg-card/20" />
+              <div className="flex items-end justify-between gap-4">
+                <div className="flex items-start">
+                  <p className="bmd:text-8xl text-5xl text-primary-foreground">
+                    4.9
+                  </p>
+                  <RiStarFill className="size-4 text-yellow-500" />
+                </div>
+                <p className="bmd:text-lg text-muted text-sm">( Avaliações )</p>
+              </div>
+            </div>
+            <Separator className="bmd:hidden bg-card/20" />
+            <div className="flex bmd:hidden items-center gap-4 rounded-full">
+              <p className="font-semibold bmd:text-base text-primary-foreground text-xs">
+                Mais populares
+              </p>
+              <div className="flex items-center gap-2">
+                {popularMassages.slice(0, 2).map((massage) => (
+                  <Button
+                    key={massage}
+                    className="cursor-pointer rounded-3xl bg-card/12 bmd:py-6 py-4 text-primary-foreground uppercase hover:bg-transparent"
+                  >
+                    <Calendar />
+                    {massage}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="floating absolute top-52 left-0 w-fit opacity-75 md:top-30 md:left-4">
-        <motion.div
-          variants={revealLeftClipVariants}
-          initial="initial"
-          animate="animate"
-          custom={2.6}
-          className="relative aspect-square w-[22vw] min-w-[100px] max-w-[200px] overflow-hidden rounded-2xl"
-        >
-          <Image
-            src="/images/bed-front.webp"
-            alt="Relaxed Icon"
-            fill
-            className="size-full object-cover object-center"
-          />
-        </motion.div>
-      </div>
-      <div className="floating floating-delay absolute top-40 right-0 w-fit opacity-75 md:top-26 md:right-4">
-        <motion.div
-          variants={revealLeftClipVariants}
-          initial="initial"
-          animate="animate"
-          custom={2.8}
-          className="relative aspect-square w-[22vw] min-w-[100px] max-w-[200px] overflow-hidden rounded-2xl"
-        >
-          <Image
-            src="/images/console.webp"
-            alt="Relaxed Icon"
-            fill
-            className="size-full object-cover object-center"
-          />
-        </motion.div>
       </div>
     </div>
   );
