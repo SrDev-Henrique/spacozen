@@ -5,20 +5,27 @@ import { Calendar } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { isMobile } from "react-device-detect";
-import { RelaxedIcon } from "@/components/icons/relaxed-icon";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import { fadeUpBlurVariants, revealLeftClipVariants } from "./anime";
+import {
+  fadeRightVariants,
+  fadeUpBlurVariants,
+  heroContainerClipVariants,
+  opacityVariants,
+} from "./anime";
 
 const popularMassages = ["Nuru", "Vivência", "Mix Tântrico"];
 
 export function Hero() {
   return (
-    <div className="relative h-dvh min-h-[660px] w-full">
-      <div className="relative h-full w-full brightness-55">
+    <motion.div
+      variants={heroContainerClipVariants}
+      initial="initial"
+      animate="animate"
+      className="relative h-dvh min-h-[660px] w-full overflow-hidden rounded-b-4xl"
+    >
+      <div className="relative h-full w-full overflow-hidden brightness-55">
         <Image
           src="/images/hero.webp"
           alt="Hero Background"
@@ -31,56 +38,99 @@ export function Hero() {
           <div className="flex h-full flex-col items-start justify-end bmd:justify-between gap-4 bmd:pb-0 pb-10">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h3 className="font-semibold text-lg text-muted">
+                <motion.h3
+                  variants={fadeUpBlurVariants}
+                  initial="initial"
+                  animate="animate"
+                  custom={{ delay: 1, opacity: 1 }}
+                  className="font-semibold text-lg text-muted"
+                >
                   Sua dose de bem-estar
-                </h3>
-                <h1 className="bmd:max-w-2xl max-w-sm font-bold text-5xl text-primary-foreground lg:text-7xl">
+                </motion.h3>
+                <motion.h1
+                  variants={fadeUpBlurVariants}
+                  initial="initial"
+                  animate="animate"
+                  custom={{ delay: 1.2, opacity: 1 }}
+                  className="bmd:max-w-2xl max-w-sm font-bold text-4xl text-primary-foreground sm:text-5xl lg:text-7xl"
+                >
                   A massagem muda o seu dia a dia
-                </h1>
+                </motion.h1>
               </div>
-              <Button
-                variant="default"
-                className="rounded-full bmd:py-7 py-6 pe-1 uppercase"
-                asChild
+              <motion.div
+                variants={fadeUpBlurVariants}
+                initial="initial"
+                animate="animate"
+                custom={{ delay: 1.4, opacity: 1 }}
+                className="w-fit"
               >
-                <Link href="/agendamento">
-                  Agendar horário
-                  <div className="rounded-full bg-foreground bmd:p-3 p-2">
-                    <Calendar className="size-4 md:size-5" />
-                  </div>
-                </Link>
-              </Button>
+                <Button
+                  variant="default"
+                  className="rounded-full bmd:py-7 py-6 pe-1 uppercase"
+                  asChild
+                >
+                  <Link href="/agendamento">
+                    Agendar horário
+                    <div className="rounded-full bg-foreground bmd:p-3 p-2">
+                      <Calendar className="size-4 md:size-5" />
+                    </div>
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
-            <div className="bmd:flex hidden items-center gap-4 rounded-full bg-foreground/30 p-2">
+            <motion.div
+              variants={opacityVariants}
+              initial="initial"
+              animate="animate"
+              custom={1.6}
+              className="bmd:flex hidden items-center gap-4 rounded-full bg-foreground/30 p-2"
+            >
               <p className="font-semibold bmd:text-base text-primary-foreground text-xs">
                 Mais populares
               </p>
-              <div className="flex items-center gap-2">
-                {popularMassages.map((massage) => (
-                  <Button
+              <div className="flex items-center gap-2 overflow-hidden">
+                {popularMassages.map((massage, index) => (
+                  <motion.div
                     key={massage}
-                    className="cursor-pointer rounded-3xl bg-transparent bmd:py-6 py-4 text-primary-foreground uppercase backdrop-blur-sm backdrop-brightness-155 hover:bg-transparent hover:brightness-115"
+                    variants={fadeUpBlurVariants}
+                    initial="initial"
+                    animate="animate"
+                    custom={{ delay: 1.8 + index * 0.1, opacity: 1 }}
                   >
-                    <Calendar />
-                    {massage}
-                  </Button>
+                    <Button className="cursor-pointer rounded-3xl bg-card/12 bmd:py-6 py-4 text-primary-foreground uppercase hover:bg-card/17">
+                      <Calendar />
+                      {massage}
+                    </Button>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
-          <div className="w-fit space-y-4 self-end rounded-2xl p-4 backdrop-blur-sm backdrop-brightness-75">
+          <motion.div
+            variants={opacityVariants}
+            initial="initial"
+            animate="animate"
+            custom={2}
+            className="w-fit space-y-4 self-end rounded-2xl p-4 backdrop-blur-sm backdrop-brightness-75"
+          >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="flex items-center">
                   {Array.from({ length: 3 }).map((_, index) => (
-                    <Avatar
+                    <motion.div
                       key={index.toString()}
-                      className="not-first:-ms-2 bmd:size-10 border-2 border-muted/30"
+                      variants={fadeUpBlurVariants}
+                      initial="initial"
+                      animate="animate"
+                      custom={{ delay: 2.2 + index * 0.1, opacity: 1 }}
+                      className="not-first:-ms-2 w-fit"
                     >
-                      <AvatarImage
-                        src={`/images/avatar-${index}.${index === 0 ? "jpg" : "webp"}`}
-                      />
-                    </Avatar>
+                      <Avatar className="bmd:size-10 border-2 border-muted/30">
+                        <AvatarImage
+                          src={`/images/avatar-${index}.${index === 0 ? "jpg" : "webp"}`}
+                        />
+                      </Avatar>
+                    </motion.div>
                   ))}
                 </div>
                 <p className="text-nowrap rounded-full bg-card/12 p-2 font-semibold bmd:text-base text-primary-foreground text-sm">
@@ -121,9 +171,9 @@ export function Hero() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

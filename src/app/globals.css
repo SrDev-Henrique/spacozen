@@ -99,7 +99,7 @@
   --breakpoint-xs: 430px;
   --breakpoint-bmd: 940px;
   --breakpoint-xl: 1224px;
-  --breakpoint-2xl: 1536px;
+  --breakpoint-2xl: 1400px;
 }
 
 @custom-variant dark (&:is(.dark *));

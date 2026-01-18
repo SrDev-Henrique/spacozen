@@ -5,18 +5,15 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { fadeUpBlurVariants } from "@/app/(sections)/hero/anime";
 import { cn } from "@/lib/utils";
-import { Logo } from "../icons/logo";
 import { RelaxedIcon } from "../icons/relaxed-icon";
 import { Button } from "../ui/button";
-import { logoVariants } from "./anime";
+import { navVariants } from "./anime";
 
 export function NavigationMenu() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>("estilos");
 
   useEffect(() => {
-    setIsMounted(true);
     setTimeout(() => {
       setIsLoaded(true);
     }, 1400);
@@ -24,7 +21,12 @@ export function NavigationMenu() {
 
   const navList = ["estilos", "sobre nós", "ambiente", "faq", "review"];
   return (
-    <div className="-translate-x-1/2 fixed top-4 left-1/2 z-100 flex w-[92%] max-w-[1320px] justify-between px-4 sm:px-6 md:w-full">
+    <motion.div
+      variants={navVariants}
+      initial="initial"
+      animate="animate"
+      className="-translate-x-1/2 fixed top-4 left-1/2 z-100 flex w-[92%] max-w-[1320px] justify-between px-4 sm:px-6 md:w-full"
+    >
       <div className="relative w-fit flex-center">
         <Link href="/">
           <RelaxedIcon width={42} height={42} />
@@ -32,12 +34,7 @@ export function NavigationMenu() {
       </div>
 
       <div className="w-full max-w-2xl">
-        <nav
-          className={cn(
-            "flex h-14.5 w-full items-center overflow-hidden rounded-full border border-foreground/50 backdrop-blur-sm transition-all duration-500",
-            isLoaded && "backdrop-brightness-75",
-          )}
-        >
+        <nav className="flex h-14.5 w-full items-center overflow-hidden rounded-full bg-foreground/26 backdrop-blur-sm transition-all duration-500">
           {navList.map((item) => (
             <Link
               href={`/${item}`}
@@ -77,6 +74,6 @@ export function NavigationMenu() {
           <Link href="/agendamento">Agendar</Link>
         </Button>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
