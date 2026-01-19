@@ -18,21 +18,21 @@ export default function RootLayout({
     <html lang="pt-BR" className="scrollbar-hide">
       <link
         rel="preload"
-        href="/fonts/bodoni-moda-v28-latin-700.woff2"
+        href="/fonts/nunito-v32-latin-700.woff2"
         as="font"
         type="font/woff2"
         crossOrigin="anonymous"
       />
       <link
         rel="preload"
-        href="/fonts/raleway-v37-latin-700.woff2"
+        href="/fonts/roboto-v50-latin-700.woff2"
         as="font"
         type="font/woff2"
         crossOrigin="anonymous"
       />
       <link
         rel="preload"
-        href="/fonts/source-sans-3-v19-latin-400.woff2"
+        href="/fonts/roboto-v50-latin-600.woff2"
         as="font"
         type="font/woff2"
         crossOrigin="anonymous"

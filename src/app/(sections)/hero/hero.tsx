@@ -42,7 +42,7 @@ export function Hero() {
                   initial="initial"
                   animate="animate"
                   custom={{ delay: 1, opacity: 1 }}
-                  className="font-semibold text-lg text-muted"
+                  className="text-lg text-muted"
                 >
                   Sua dose de bem-estar
                 </motion.h3>
@@ -51,7 +51,7 @@ export function Hero() {
                   initial="initial"
                   animate="animate"
                   custom={{ delay: 1.2, opacity: 1 }}
-                  className="bmd:max-w-2xl max-w-sm font-bold text-4xl text-primary-foreground sm:text-5xl lg:text-7xl"
+                  className="bmd:max-w-2xl max-w-sm text-4xl text-primary-foreground sm:max-w-140 sm:text-5xl lg:text-6xl 2xl:text-7xl"
                 >
                   A massagem muda o seu dia a dia
                 </motion.h1>

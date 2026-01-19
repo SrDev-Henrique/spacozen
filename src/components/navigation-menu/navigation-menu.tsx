@@ -2,17 +2,33 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { isMobile } from "react-device-detect";
 import { fadeUpBlurVariants } from "@/app/(sections)/hero/anime";
+import { useDimension } from "@/lib/use-dimension";
 import { cn } from "@/lib/utils";
 import { RelaxedIcon } from "../icons/relaxed-icon";
 import { Button } from "../ui/button";
 import { navVariants } from "./anime";
+import { MobileNavigation } from "./mobile-navigation";
 
 export function NavigationMenu() {
+  const [isMounted, setIsMounted] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>("estilos");
 
+  const { width } = useDimension();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const navList = ["estilos", "sobre nós", "ambiente", "faq", "review"];
+
+  if (!isMounted) return null;
+
+  if (isMounted && (isMobile || (width && width < 940)))
+    return <MobileNavigation />;
+
   return (
     <motion.div
       variants={navVariants}
