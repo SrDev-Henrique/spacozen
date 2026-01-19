@@ -45,10 +45,12 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
+      lenisRef.current.stop();
     }
     document.body.style.overflow = "hidden";
     setTimeout(() => {
       document.body.style.overflow = "auto";
+      lenisRef.current?.start();
     }, 2000);
     return () => {
       document.body.style.overflow = "auto";
