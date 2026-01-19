@@ -1,5 +1,3 @@
-import { cubicBezier } from "motion/react";
-
 export const knowMoreVariants = {
   initial: {
     bottom: "1rem",
