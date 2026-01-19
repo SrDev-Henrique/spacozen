@@ -1,6 +1,7 @@
 "use client";
 
 import { RiArrowLeftLine } from "@remixicon/react";
+import { Calendar } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,12 +16,11 @@ import {
 import { cn } from "@/lib/utils";
 import { knowMoreVariants } from "./anime";
 import { massages } from "./lib/data";
-import { Calendar } from "lucide-react";
 
 export function Massages() {
   const [knowMore, setKnowMore] = useState<number>(0);
   return (
-    <div className="min-h-screen w-full px-4 pb-10 lg:px-6">
+    <div className="min-h-screen w-full px-4 lg:px-6">
       <div className="flex flex-col items-center gap-6">
         <div className="w-fit">
           <h3 className="font-bold bmd:text-3xl text-2xl lg:text-4xl">
@@ -98,13 +98,12 @@ export function Massages() {
                     >
                       <div
                         className={cn(
-                          "flex-center flex-col gap-2 p-4 opacity-0 transition-opacity delay-0 duration-300",
-                          knowMore === massage.id && "opacity-100 delay-300",
+                          "flex-center flex-col gap-2 p-4 opacity-0 transition-opacity delay-0 duration-200",
+                          knowMore === massage.id &&
+                            "opacity-100 delay-400 duration-300",
                         )}
                       >
-                        <Button
-                          className="rounded-full"
-                        >
+                        <Button className="rounded-full">
                           Agendar
                           <Calendar className="size-4" />
                         </Button>
