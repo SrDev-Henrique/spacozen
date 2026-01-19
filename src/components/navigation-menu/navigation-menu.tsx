@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { fadeUpBlurVariants } from "@/app/(sections)/hero/anime";
 import { cn } from "@/lib/utils";
 import { RelaxedIcon } from "../icons/relaxed-icon";
@@ -10,14 +10,7 @@ import { Button } from "../ui/button";
 import { navVariants } from "./anime";
 
 export function NavigationMenu() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>("estilos");
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 1400);
-  }, []);
 
   const navList = ["estilos", "sobre nós", "ambiente", "faq", "review"];
   return (
