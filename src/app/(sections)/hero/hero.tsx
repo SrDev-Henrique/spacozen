@@ -23,7 +23,7 @@ export function Hero() {
       variants={heroContainerClipVariants}
       initial="initial"
       animate="animate"
-      className="relative h-dvh min-h-[660px] w-full overflow-hidden rounded-b-4xl"
+      className="relative h-screen min-h-[660px] w-full overflow-hidden rounded-b-4xl"
     >
       <div className="relative h-full w-full overflow-hidden brightness-55">
         <Image
@@ -33,7 +33,7 @@ export function Hero() {
           className="object-cover object-center"
         />
       </div>
-      <div className="absolute inset-0 bmd:pt-42 pt-22">
+      <div className="absolute top-0 right-0 left-0 h-dvh bmd:pt-42 pt-22">
         <div className="mx-auto flex h-full w-full max-w-[1320px] bmd:flex-row flex-col bmd:items-end justify-between p-4 lg:px-6">
           <div className="flex h-full flex-col items-start justify-end bmd:justify-between gap-4 bmd:pb-0 pb-10">
             <div className="space-y-6">
@@ -163,7 +163,7 @@ export function Hero() {
                 {popularMassages.slice(0, 2).map((massage) => (
                   <Button
                     key={massage}
-                    className="cursor-pointer rounded-3xl bg-card/12 bmd:py-6 py-4 text-primary-foreground uppercase hover:bg-transparent"
+                    className="cursor-pointer rounded-3xl bg-card/12 bmd:py-6 py-4 text-primary-foreground uppercase hover:bg-card/17"
                   >
                     <Calendar />
                     {massage}
