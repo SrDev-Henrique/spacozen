@@ -23,9 +23,9 @@ export function Massages() {
     <div className="min-h-screen w-full px-4 lg:px-6">
       <div className="flex flex-col items-center gap-6">
         <div className="w-fit">
-          <h3 className="font-bold bmd:text-3xl text-2xl lg:text-4xl">
+          <h1 className="text-center font-bold bmd:text-4xl text-3xl lg:text-5xl">
             Nossos Estilos de Massagem
-          </h3>
+          </h1>
         </div>
         <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {massages.map((massage, index) => (
