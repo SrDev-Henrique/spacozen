@@ -23,8 +23,8 @@ export function About() {
                 <h3 className="font-bold text-2xl leading-tight">
                   Massagens Sob Medida
                 </h3>
-                <p>
-                  Nossas massagem são adaptadas para atender às suas
+                <p className="text-muted-foreground">
+                  Nossas massagens são adaptadas para atender às suas
                   necessidades específicas, seja você um iniciante ou alguém com
                   experiência em massagens.
                 </p>
@@ -38,7 +38,7 @@ export function About() {
                 <h3 className="font-bold text-2xl leading-tight">
                   Técnicas Variadas
                 </h3>
-                <p>
+                <p className="text-muted-foreground">
                   Explore uma variedade de técnicas de massagem para enriquecer
                   sua experiência de bem-estar. Você será guiado através de
                   diferentes estilos.
@@ -53,7 +53,7 @@ export function About() {
                 <h3 className="font-bold text-2xl leading-tight">
                   Conexão com o Corpo e a Mente
                 </h3>
-                <p>
+                <p className="text-muted-foreground">
                   Revitalize-se com o poder transformador da massagem. Nossas
                   sessões são ideais para quem busca aliviar tensões e renovar
                   as energias.
