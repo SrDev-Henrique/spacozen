@@ -42,7 +42,7 @@ export function About() {
           <div className="relative aspect-square bmd:aspect-square max-h-[430px] w-full overflow-hidden rounded-xl">
             <Image
               alt="Massagens sob medida oferecida pelo SpaçoZen"
-              src="/images/about.jpg"
+              src="/images/about(0).webp"
               fill
               className="object-cover object-center"
             />

@@ -68,7 +68,7 @@ export function Massages() {
                   <div className="relative flex size-full flex-col items-center justify-end gap-10 overflow-hidden pb-4">
                     <p
                       className={cn(
-                        "max-w-sm rounded-full bg-card px-1.5 py-2 text-center font-bold text-muted-foreground text-sm transition-opacity delay-500 duration-300",
+                        "max-w-sm rounded-full bg-foreground px-2.5 py-2 text-center font-bold text-muted text-sm transition-opacity delay-500 duration-300",
                         knowMore === massage.id && "opacity-0 delay-0",
                       )}
                     >
