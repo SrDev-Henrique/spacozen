@@ -1,4 +1,4 @@
-export const Measure = ({ size = 24, color = "#7b2cbf" }) => {
+export const Measure = ({ size = 24, color = "#343a40" }) => {
   return (
     <svg
       width={size}

@@ -37,7 +37,7 @@ export default function RootLayout({
         type="font/woff2"
         crossOrigin="anonymous"
       />
-      <body className="antialiased">
+      <body className="bg-foreground antialiased">
         <NavigationMenu />
         <LenisProvider>{children}</LenisProvider>
       </body>

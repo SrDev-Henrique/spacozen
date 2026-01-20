@@ -103,9 +103,11 @@ export function Massages() {
                             "opacity-100 delay-400 duration-300",
                         )}
                       >
-                        <Button className="rounded-full">
+                        <Button className="rounded-full pe-2">
                           Agendar
-                          <Calendar className="size-4" />
+                          <div className="rounded-full bg-foreground p-2">
+                            <Calendar className="size-4" />
+                          </div>
                         </Button>
                         <p className="text-center font-bold text-muted text-sm">
                           {massage.description}

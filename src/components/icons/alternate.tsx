@@ -1,4 +1,4 @@
-export const Alternate = ({ size = 24, color = "#80c423" }) => {
+export const Alternate = ({ size = 24, color = "#972d07" }) => {
   return (
     <svg
       width={size}
