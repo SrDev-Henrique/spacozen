@@ -23,7 +23,7 @@ export function Massages() {
     <div className="min-h-screen w-full px-4 lg:px-6">
       <div className="flex flex-col items-center gap-6">
         <div className="w-fit">
-          <h1 className="text-center font-bold bmd:text-4xl text-3xl lg:text-5xl">
+          <h1 className="text-center font-bold bmd:text-4xl text-3xl text-primary-foreground lg:text-5xl">
             Nossos Estilos de Massagem
           </h1>
         </div>
