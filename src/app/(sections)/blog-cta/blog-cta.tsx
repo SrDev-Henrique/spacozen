@@ -1,16 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { isMobile } from "react-device-detect";
 import { Arrow } from "@/components/icons/arrow";
 import { Blog } from "@/components/icons/blog";
 import { Quote } from "@/components/icons/quote";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { useDimension } from "@/lib/use-dimension";
 import { BlogCtaPostCards } from "./components/blog-cta-post-cards";
 import { posts } from "./lib/data";
 
 export function BlogCta() {
+  const { width } = useDimension();
+
   return (
-    <div className="relative h-fit w-full overflow-hidden">
+    <div className="relative h-fit w-full">
       <div className="absolute inset-0">
         <Image
           src="/images/blog-2.webp"
@@ -70,16 +76,36 @@ export function BlogCta() {
                 <div className="space-y-2">
                   <Quote size={24} color="white" />
                   <p className="max-w-[300px] bmd:text-base text-muted text-xs">
-                    A massagem, além de ser gostosa e me fazer sentir bem,
-                    ainda me ajudou a melhorar minhas dores.
+                    A massagem, além de ser gostosa e me fazer sentir bem, ainda
+                    me ajudou a melhorar minhas dores.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="flex h-full shrink-0 gap-3 lg:translate-x-[22%]">
-              {posts.map((post) => (
-                <BlogCtaPostCards key={post.id} {...post} />
-              ))}
+            <div className="flex w-full flex-col gap-4">
+              {!isMobile && (
+                <div className="flex items-center justify-center gap-6">
+                  <div className="rotate-180 cursor-pointer rounded-full bg-card p-2 transition-all duration-300 hover:bg-card/80">
+                    <Arrow size={26} color="oklch(0.2178 0 0)" />
+                  </div>
+                  <div className="cursor-pointer rounded-full bg-card p-2 transition-all duration-300 hover:bg-card/80">
+                    <Arrow size={26} color="oklch(0.2178 0 0)" />
+                  </div>
+                </div>
+              )}
+              <div
+                style={{
+                  maskImage:
+                    width && width < 740
+                      ? "linear-gradient(to left, white 70%,transparent 100%)"
+                      : "linear-gradient(to left, white 90%,transparent 100%)",
+                }}
+                className="scrollbar-hide flex h-full w-[calc(100%+1rem)] shrink-0 gap-3 overflow-x-auto bmd:ps-12 ps-24 lg:translate-x-[22%] lg:ps-22"
+              >
+                {posts.map((post) => (
+                  <BlogCtaPostCards key={post.id} {...post} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

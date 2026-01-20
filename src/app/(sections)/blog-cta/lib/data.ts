@@ -8,30 +8,30 @@ type PostItem = {
 export const posts: PostItem[] = [
   {
     id: 1,
-    title: "O papel da massagem na redução da ansiedade e estresse",
+    title: "Nuru: a técnica do toque pele-a-pele e como é feita com segurança",
     description:
-      "Descubra como a massagem pode ser uma poderosa aliada para combater a ansiedade e o estresse, promovendo o relaxamento físico e mental.",
+      "Entenda a origem do Nuru, o uso do gel apropriado e como garantir higiene, conforto e limites claros durante a sessão.",
     image: "/images/post-0.jpeg",
   },
   {
     id: 2,
-    title: "O poder da massagem para o sistema imunológico",
+    title: "Vivência: dar e receber — a prática da massagem interativa",
     description:
-      "Como a massagem regular pode fortalecer o sistema imunológico e promover a saúde a longo prazo.",
+      "Explicamos a vivência mútua, suas dinâmicas de troca consciente, e como a prática estimula presença e intimidade sem pressa.",
     image: "/images/post-1.jpeg",
   },
   {
     id: 3,
-    title: "A conexão entre massagem e a saúde digestiva",
+    title: "Consentimento, limites e segurança em massagens sensuais",
     description:
-      "Explore como as técnicas de massagem podem ajudar a melhorar a digestão e aliviar desconfortos gastrointestinais.",
+      "Guia prático sobre comunicação, limites, higiene e sinais de profissionalismo que você deve exigir no seu estúdio.",
     image: "/images/post-2.jpeg",
   },
   {
     id: 4,
-    title: "Massagem para recuperação pós-treino: benefícios para atletas",
+    title: "Preparação para a sessão: higiene, vestimenta e o que esperar",
     description:
-      "Explore como a massagem pode acelerar a recuperação muscular e aliviar a dor após o exercício físico.",
+      "Dicas claras para o cliente chegar preparado e confortável — do banho às expectativas sobre a sessão.",
     image: "/images/post-3.jpeg",
   },
 ];

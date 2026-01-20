@@ -10,8 +10,8 @@ export function BlogCtaPostCards({
   description: string;
 }) {
   return (
-    <div className="flex bmd:max-w-lg max-w-md shrink-0 items-start gap-4 overflow-hidden rounded-xl backdrop-blur-sm backdrop-brightness-75">
-      <div className="relative aspect-square min-w-43.5 overflow-hidden rounded-xl lg:min-w-47.5">
+    <div className="flex bmd:w-lg w-md shrink-0 items-start gap-4 overflow-hidden rounded-xl bg-foreground/76">
+      <div className="relative aspect-square min-w-48.5 overflow-hidden rounded-xl lg:min-w-47.5">
         <Image
           src={image}
           alt="Blog"
